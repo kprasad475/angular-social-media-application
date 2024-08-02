@@ -10,6 +10,10 @@ import { PostUpdateComponent } from './post-update/post-update.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card';
 import { FormsModule }   from '@angular/forms';
+import {MatExpansionModule} from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+
 
 
 
@@ -26,7 +30,9 @@ import { FormsModule }   from '@angular/forms';
     AppRoutingModule,
     MatFormFieldModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
+      MatExpansionModule,
+      BrowserAnimationsModule
   ],
   providers: [
     provideClientHydration(),
