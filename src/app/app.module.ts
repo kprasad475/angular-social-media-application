@@ -7,6 +7,12 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { PostListComponent } from './post-list/post-list.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import { PostUpdateComponent } from './post-update/post-update.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatCardModule} from '@angular/material/card';
+import { FormsModule }   from '@angular/forms';
+
+
+
 
 @NgModule({
   declarations: [
@@ -17,7 +23,10 @@ import { PostUpdateComponent } from './post-update/post-update.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatFormFieldModule,
+    MatCardModule,
+    FormsModule
   ],
   providers: [
     provideClientHydration(),

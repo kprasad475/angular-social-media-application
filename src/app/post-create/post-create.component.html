@@ -1,1 +1,15 @@
-<p>post-create works!</p>
+<mat-card>
+    <form (submit)="onAddPost(form)" #form="ngForm">
+      <mat-form-field>
+        <input matInput placeholder="Title" name="title" ngModel required>
+      </mat-form-field>
+      <mat-form-field>
+        <textarea matInput placeholder="Description" name="description" ngModel required></textarea>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Image URL" name="imagePath" ngModel required>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Add Post</button>
+    </form>
+  </mat-card>
+  
