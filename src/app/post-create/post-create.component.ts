@@ -13,9 +13,15 @@ export class PostCreateComponent {
 
   constructor(public service: PostService) {
     this.postForm = new FormGroup({
-      title: new FormControl(null, { validators: [Validators.required, Validators.minLength(3)] }),
-      description: new FormControl(null, { validators: [Validators.required] }),
-      imagePath: new FormControl(null, { validators: [Validators.required] })
+      title: new FormControl(null, {
+        validators: [Validators.required, Validators.minLength(3)]
+      }),
+      description: new FormControl(null, {
+        validators: [Validators.required]
+      }),
+      imagePath: new FormControl(null, {
+        validators: [Validators.required]
+      })
     });
   }
 
@@ -29,11 +35,14 @@ export class PostCreateComponent {
     }
     return '';
   }
-
   onAddPost() {
+    console.log(this.postForm.value); // Log form values
+    console.log(this.postForm.valid); // Log form validity
     if (this.postForm.invalid) {
+      console.log('Form is invalid');
       return;
     }
+    console.log('Form is valid, adding post');
     this.service.addPost(
       this.postForm.value.title,
       this.postForm.value.description,

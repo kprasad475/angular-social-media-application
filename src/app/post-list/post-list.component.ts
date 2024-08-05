@@ -1,14 +1,15 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { PostService } from '../post.service';
-import { Post } from '../post-model';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { Post } from '../post-model';
 
 import { animate, state, style, transition, trigger } from '@angular/animations';
+
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
-  styleUrl: './post-list.component.css',
+  styleUrls: ['./post-list.component.css'],
   animations: [
     trigger('postState', [
       state('in', style({ opacity: 1, transform: 'translateX(0)' })),
@@ -22,11 +23,11 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
     ])
   ]
 })
-export class PostListComponent implements OnInit,OnDestroy{
+export class PostListComponent implements OnInit, OnDestroy {
   posts: Post[] = [];
   private postsSub: Subscription;
 
-  constructor(public service:PostService, private sanitizer: DomSanitizer){}
+  constructor(public service: PostService, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
     this.posts = this.service.getPosts();
@@ -43,9 +44,11 @@ export class PostListComponent implements OnInit,OnDestroy{
   getSanitizedUrl(url: string): SafeUrl {
     return this.sanitizer.bypassSecurityTrustUrl(url);
   }
+
   ngOnDestroy() {
     this.postsSub.unsubscribe();
   }
+
   onLike(post: Post) {
     // Implement like functionality
   }

@@ -18,10 +18,11 @@ export class PostService {
   }
 
   addPost(title: string, description: string, imagePath: string) {
-    const post: Post = { id: (Math.random() * 1000).toString(), title, description, imagePath };
+    const post: Post = { title, description, imagePath };
     this.posts.push(post);
     this.postsUpdated.next([...this.posts]);
   }
+
 
   updatePost(id: string, title: string, description: string, imagePath: string) {
     const updatedPosts = [...this.posts];
