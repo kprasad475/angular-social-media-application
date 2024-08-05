@@ -13,6 +13,7 @@ import { FormsModule }   from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
+import { NavbarComponent } from './navbar/navbar.component';
 
 
 
@@ -25,7 +26,8 @@ import { MatInputModule } from '@angular/material/input';
     AppComponent,
     PostListComponent,
     PostCreateComponent,
-    PostUpdateComponent
+    PostUpdateComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
