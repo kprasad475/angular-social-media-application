@@ -46,4 +46,15 @@ export class PostListComponent implements OnInit,OnDestroy{
   ngOnDestroy() {
     this.postsSub.unsubscribe();
   }
+  onLike(post: Post) {
+    // Implement like functionality
+  }
+
+  onComment(post: Post) {
+    // Implement comment functionality
+  }
+
+  onShare(post: Post) {
+    // Implement share functionality
+  }
 }
