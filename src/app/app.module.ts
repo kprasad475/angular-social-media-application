@@ -12,6 +12,8 @@ import {MatCardModule} from '@angular/material/card';
 import { FormsModule }   from '@angular/forms';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatInputModule } from '@angular/material/input';
+
 
 
 
@@ -32,7 +34,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatCardModule,
     FormsModule,
       MatExpansionModule,
-      BrowserAnimationsModule
+      BrowserAnimationsModule,
+      MatInputModule
   ],
   providers: [
     provideClientHydration(),
