@@ -52,4 +52,6 @@ export class PostCreateComponent implements OnInit {
       console.log('Form Controls:', this.postForm.controls);
     }
   }
+
+ 
 }

@@ -37,6 +37,9 @@ export class PostListComponent implements OnInit, OnDestroy {
         this.posts = posts;
       });
   }
+  onImageError(event: Event): void {
+    (event.target as HTMLImageElement).src = 'assets/hand-drawn-bharatanatyam-illustration_52683-94024.jpg'; // Fallback image
+  }
 
   onDelete(postId: string) {
     this.service.deletePost(postId);

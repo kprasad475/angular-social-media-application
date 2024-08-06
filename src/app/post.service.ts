@@ -12,18 +12,20 @@ export class PostService {
   constructor() {
     this.posts = [
       { id: '1', title: 'Sample Post 1', description: 'This is a sample post.', imagePath: 'https://example.com/image1.jpg' },
-      { id: '2', title: 'Sample Post 2', description: 'This is another sample post.', imagePath: 'https://example.com/image2.jpg' }
+      { id: '2', title: 'Sample Post 2', description: 'This is another sample post.', imagePath: 'https://example.com/image1.jpg' }
     ];
     this.postsUpdated.next([...this.posts]); // Emit the initial posts
   }
 
   getPosts() {
     return [...this.posts];
+    console.log(this.posts)
   }
 
   getPostUpdateListener() {
     return this.postsUpdated.asObservable();
   }
+
 
   addPost(title: string, description: string, imagePath: string) {
     const post: Post = { id: Date.now().toString(), title, description, imagePath }; // Assign an ID
