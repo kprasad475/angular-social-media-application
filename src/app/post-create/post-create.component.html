@@ -1,23 +1,26 @@
-<mat-card *ngIf="postForm">
+<div *ngIf="postForm">
   <form [formGroup]="postForm" (ngSubmit)="onAddPost()">
-    <mat-form-field>
-      <input matInput placeholder="Title" formControlName="title">
-      <mat-error *ngIf="postForm.get('title')?.invalid && postForm.get('title')?.touched">
+    <div [ngClass]="{'error': postForm.get('title')?.invalid && postForm.get('title')?.touched}">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title">
+      <div *ngIf="postForm.get('title')?.touched && postForm.get('title')?.invalid">
         {{ getErrorMessage('title') }}
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <textarea matInput placeholder="Description" formControlName="description"></textarea>
-      <mat-error *ngIf="postForm.get('description')?.invalid && postForm.get('description')?.touched">
+      </div>
+    </div>
+    <div [ngClass]="{'error': postForm.get('description')?.invalid && postForm.get('description')?.touched}">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description"></textarea>
+      <div *ngIf="postForm.get('description')?.touched && postForm.get('description')?.invalid">
         {{ getErrorMessage('description') }}
-      </mat-error>
-    </mat-form-field>
-    <mat-form-field>
-      <input matInput placeholder="Image URL" formControlName="imagePath">
-      <mat-error *ngIf="postForm.get('imagePath')?.invalid && postForm.get('imagePath')?.touched">
+      </div>
+    </div>
+    <div [ngClass]="{'error': postForm.get('imagePath')?.invalid && postForm.get('imagePath')?.touched}">
+      <label for="imagePath">Image URL</label>
+      <input id="imagePath" type="text" formControlName="imagePath">
+      <div *ngIf="postForm.get('imagePath')?.touched && postForm.get('imagePath')?.invalid">
         {{ getErrorMessage('imagePath') }}
-      </mat-error>
-    </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid">Add Post</button>
+      </div>
+    </div>
+    <button type="submit" [disabled]="postForm.invalid">Add Post</button>
   </form>
-</mat-card>
+</div>

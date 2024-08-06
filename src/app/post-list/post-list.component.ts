@@ -30,9 +30,10 @@ export class PostListComponent implements OnInit, OnDestroy {
   constructor(public service: PostService, private sanitizer: DomSanitizer) {}
 
   ngOnInit() {
-    this.posts = this.service.getPosts();
+    this.posts = this.service.getPosts(); // Get initial posts
     this.postsSub = this.service.getPostUpdateListener()
       .subscribe((posts: Post[]) => {
+        console.log('Updated Posts:', posts); // This should log updated posts
         this.posts = posts;
       });
   }
