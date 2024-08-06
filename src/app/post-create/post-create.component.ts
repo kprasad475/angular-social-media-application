@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { PostService } from '../post.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-post-create',
@@ -10,7 +11,7 @@ import { PostService } from '../post.service';
 export class PostCreateComponent implements OnInit {
   postForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private service:PostService) {
+  constructor(private fb: FormBuilder,private service:PostService ,private router:Router) {
     this.postForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(3)]],
       description: ['', [Validators.required, Validators.minLength(5)]],
@@ -45,6 +46,8 @@ export class PostCreateComponent implements OnInit {
       this.postForm.reset();
       this.postForm.markAsPristine();
       this.postForm.markAsUntouched();
+      this.router.navigate(['/list'])
+
     } else {
       this.postForm.markAllAsTouched();
       console.log('Form Status:', this.postForm.status);

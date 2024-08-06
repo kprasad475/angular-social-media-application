@@ -1,26 +1,27 @@
-<div *ngIf="postForm">
-  <form [formGroup]="postForm" (ngSubmit)="onAddPost()">
-    <div [ngClass]="{'error': postForm.get('title')?.invalid && postForm.get('title')?.touched}">
-      <label for="title">Title</label>
-      <input id="title" type="text" formControlName="title">
-      <div *ngIf="postForm.get('title')?.touched && postForm.get('title')?.invalid">
-        {{ getErrorMessage('title') }}
-      </div>
-    </div>
-    <div [ngClass]="{'error': postForm.get('description')?.invalid && postForm.get('description')?.touched}">
-      <label for="description">Description</label>
-      <textarea id="description" formControlName="description"></textarea>
-      <div *ngIf="postForm.get('description')?.touched && postForm.get('description')?.invalid">
-        {{ getErrorMessage('description') }}
-      </div>
-    </div>
-    <div [ngClass]="{'error': postForm.get('imagePath')?.invalid && postForm.get('imagePath')?.touched}">
-      <label for="imagePath">Image URL</label>
-      <input id="imagePath" type="text" formControlName="imagePath">
-      <div *ngIf="postForm.get('imagePath')?.touched && postForm.get('imagePath')?.invalid">
-        {{ getErrorMessage('imagePath') }}
-      </div>
-    </div>
-    <button type="submit" [disabled]="postForm.invalid">Add Post</button>
-  </form>
+<div class="create-post-container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Create a Post</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form [formGroup]="postForm" (ngSubmit)="onAddPost()">
+        <mat-form-field appearance="outline">
+          <mat-label>Title</mat-label>
+          <input matInput formControlName="title">
+          <mat-error *ngIf="postForm.get('title')?.invalid">{{ getErrorMessage('title') }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Description</mat-label>
+          <textarea matInput formControlName="description"></textarea>
+          <mat-error *ngIf="postForm.get('description')?.invalid">{{ getErrorMessage('description') }}</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Image URL</mat-label>
+          <input matInput formControlName="imagePath">
+          <mat-error *ngIf="postForm.get('imagePath')?.invalid">{{ getErrorMessage('imagePath') }}</mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="primary" type="submit" [disabled]="postForm.invalid">Post</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>

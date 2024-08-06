@@ -15,6 +15,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatInputModule } from '@angular/material/input';
 import { NavbarComponent } from './navbar/navbar.component';
 import {MatToolbarModule} from '@angular/material/toolbar'; 
+import { MatIconModule } from '@angular/material/icon'
+
 
 
 
@@ -41,7 +43,8 @@ import {MatToolbarModule} from '@angular/material/toolbar';
       BrowserAnimationsModule,
       MatInputModule,
       MatToolbarModule,
-      ReactiveFormsModule
+      ReactiveFormsModule,
+      MatIconModule
   ],
   providers: [
     provideClientHydration(),

@@ -11,14 +11,14 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.css'],
   animations: [
-    trigger('postState', [
-      state('in', style({ opacity: 1, transform: 'translateX(0)' })),
+    trigger('postAnimation', [
+      state('in', style({ opacity: 1, transform: 'translateY(0)' })),
       transition('void => *', [
-        style({ opacity: 0, transform: 'translateX(-100px)' }),
-        animate(300)
+        style({ opacity: 0, transform: 'translateY(20px)' }),
+        animate('0.5s ease-in')
       ]),
       transition('* => void', [
-        animate(300, style({ opacity: 0, transform: 'translateX(100px)' }))
+        animate('0.5s ease-out', style({ opacity: 0, transform: 'translateY(-20px)' }))
       ])
     ])
   ]
